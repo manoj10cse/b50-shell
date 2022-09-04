@@ -3,4 +3,4 @@
 echo first line
 echo second line
 
-echo -e third line\nfourth line
+echo -e 3line\n4line
