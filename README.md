@@ -1,3 +1,3 @@
 # b50-shell
 
-# scripting
+# Shell-scripting
