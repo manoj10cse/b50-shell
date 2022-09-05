@@ -15,8 +15,3 @@ stat() {
     echo "done"
 } 
 
-stat
-
-stat
-
-stat
