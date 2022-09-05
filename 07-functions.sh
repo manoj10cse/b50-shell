@@ -15,3 +15,4 @@ stat() {
     echo "done"
 } 
 
+stat
