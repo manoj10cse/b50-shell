@@ -19,3 +19,8 @@ d=$3
 echo value of a is : $a 
 echo value of b is : $b 
 echo value of c is : $c 
+
+echo "Printing the vairables that we have passed in the script $*"
+echo "Printing the vairables that we have passed in the script $@"
+echo "Printing the number vairables that we have passed in the scrip $#"
+echo "Prining the PID of the script that we are running $$"
