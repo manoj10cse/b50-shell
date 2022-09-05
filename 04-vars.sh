@@ -11,3 +11,5 @@ b=abc
 echo value of a is : $a 
 echo ${a}
 echo "${b}"
+
+echo value of f is : $f
