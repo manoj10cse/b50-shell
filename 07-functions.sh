@@ -16,3 +16,7 @@ stat() {
 } 
 
 stat
+
+stat
+
+stat
