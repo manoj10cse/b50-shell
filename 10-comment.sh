@@ -2,9 +2,9 @@
 echo "Cloud Training"
 
 <<COMMENT
-echo "DevOps Training"
-echo "Cloud DevOps Training"
+echo "Santhosh Training"
+echo "learnibng DevOps"
 echo "Demo on Multi Line Comment"
-a=10 
+a=20 
 echo $a
 COMMENT
