@@ -1,4 +1,4 @@
 #!/bin/bash 
 
 read -p "are you sure:"  confirm
-echo "are uou still accepeted $confirm"
+echo "are you still accepeted $confirm"
