@@ -1,3 +1,3 @@
 #!/bin/bash
 
-bash components/frontend.santhosh
+bash components/$1.sh
