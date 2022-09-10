@@ -18,11 +18,19 @@ stat $?
 
 cd /usr/share/nginx/html
 rm -rf *
+echo -n "Extracting the zip file:"
 unzip -o /tmp/frontend.zip >> /tmp/frontend.log
+stat $? 
+
 mv frontend-main/* .
 mv static/* .
+echo -n "Performing Cleanup: "
 rm -rf frontend-main README.md
+stat  $?
+
+echo -n "Configuring the Reverse Proxy: "
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
+stat $?
 
 echo -n "Starting Ngnix: "
 systemctl restart nginx
