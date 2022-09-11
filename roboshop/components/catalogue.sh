@@ -16,7 +16,7 @@ yum install nodejs -y >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "addd user roboshop"
-useradd $FUSER
+id ${FUSER} >> /tmp/${COMPONENT}.log  || useradd ${roboshop} 
 stat $?
 
 echo -n "download $COMPONENT:"
@@ -36,9 +36,9 @@ stat $?
 # chown -R $FUSER:$FUSER $COMPONENT/
 # stat $?
 
-# echo -n "Install $COMPONENT Dependencies:"
-# cd $COMPONENT && npm install &>> /tmp/${COMPONENT}.log 
-# stat $? 
+echo -n "Install $COMPONENT Dependencies:"
+cd $COMPONENT && npm install &>> /tmp/${COMPONENT}.log 
+stat $? 
 
 # echo -n "Config the Systemd file: "
 # sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${FUSER}/${COMPONENT}/systemd.service 
