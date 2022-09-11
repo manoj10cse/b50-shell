@@ -32,21 +32,21 @@ cd /home/${FUSER}/ >> /tmp/${COMPONENT}.log
 unzip -o  /tmp/{COMPONENT}.zip  >> /tmp/${COMPONENT}.log   &&   mv ${COMPONENT}-main ${COMPONENT} >> /tmp/${COMPONENT}.log 
 stat $? 
 
-echo -n "Change the ownership to ${FUSER}:"
-chown -R $FUSER:$FUSER $COMPONENT/
-stat $?
+# echo -n "Change the ownership to ${FUSER}:"
+# chown -R $FUSER:$FUSER $COMPONENT/
+# stat $?
 
-echo -n "Install $COMPONENT Dependencies:"
-cd $COMPONENT && npm install &>> /tmp/${COMPONENT}.log 
-stat $? 
+# echo -n "Install $COMPONENT Dependencies:"
+# cd $COMPONENT && npm install &>> /tmp/${COMPONENT}.log 
+# stat $? 
 
-echo -n "Config the Systemd file: "
-sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${FUSER}/${COMPONENT}/systemd.service 
-mv /home/${FUSER}/${COMPONENT}/systemd.service /etc/systemd/system/catalogue.service
-stat $? 
+# echo -n "Config the Systemd file: "
+# sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${FUSER}/${COMPONENT}/systemd.service 
+# mv /home/${FUSER}/${COMPONENT}/systemd.service /etc/systemd/system/catalogue.service
+# stat $? 
 
-echo -n "Starting the service"
-systemctl daemon-reload  &>> /tmp/${COMPONENT}.log 
-systemctl enable ${COMPONENT} &>> /tmp/${COMPONENT}.log
-systemctl start ${COMPONENT} &>> /tmp/${COMPONENT}.log
-stat $?
+# echo -n "Starting the service"
+# systemctl daemon-reload  &>> /tmp/${COMPONENT}.log 
+# systemctl enable ${COMPONENT} &>> /tmp/${COMPONENT}.log
+# systemctl start ${COMPONENT} &>> /tmp/${COMPONENT}.log
+# stat $?
