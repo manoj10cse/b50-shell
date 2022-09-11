@@ -40,3 +40,12 @@ echo -n "Install $COMPONENT Dependencies:"
 cd $COMPONENT && npm install &>> /tmp/${COMPONENT}.log 
 stat $? 
 
+echo -n "Configure the Systemd file: "
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${FUSER}/${COMPONENT}/systemd.service 
+mv /home/${FUSER}/${COMPONENT}/systemd.service /etc/systemd/system/catalogue.service
+stat $? 
+
+echo -n "Service starting"
+systemctl daemon-reload &>> /tmp/${COMPONENT}.log 
+systemctl enalbe catalogue &>> /tmp/${COMPONENT}.log 
+systemctl start catalogue &>> /tmp/${COMPONENT}.log 
