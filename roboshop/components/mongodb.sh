@@ -21,7 +21,6 @@ systemctl enable mongod >> /tmp/${COMPONENT}.log
 systemctl start mongod  
 stat $? 
 
-
-
-# systemctl enable mongod >> tmp/${COMPONENT}.log
-# systemctl start mongod
+echo -n "Download schema:"
+curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
+stat $?
