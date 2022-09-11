@@ -26,9 +26,11 @@ curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/${COMPONE
 stat $?
 
 echo -n "Extract $COMPONENT Schema:"
-cd /tmp && unzip -o mongodb.zip && cd mongodb-main
+cd /tmp && unzip -o mongodb.zip  
 stat $? 
 
 echo -n "Injecting the $COMPONENT schema: "
-mongo < catalogue.js && mongo < users.js 
+cd mongodb-main
+mongo < catalogue.js >> /tmp/${COMPONENT}.log
+mongo < users.js >> /tmp/${COMPONENT}.log
 stat $? 
