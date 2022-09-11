@@ -15,9 +15,9 @@ echo -n "Installing nodejs:"
 yum install nodejs -y >> /tmp/${COMPONENT}.log 
 stat $? 
 
-echo -n "Adding $FUSER user:"
-id ${FUSER} || useradd ${roboshop}  
-stat $? 
+# echo -n "Adding $FUSER user:"
+# id ${FUSER} || useradd ${roboshop}  
+# stat $? 
 
 echo -n "Downloading ${COMPONENT} :"
 curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip" >> /tmp/${COMPONENT}.log 
