@@ -30,7 +30,7 @@ stat $?
 echo -n "Extracting ${COMPONENT} content: "
 cd /home/${FUSER}/ >> /tmp/${COMPONENT}.log 
 unzip -o  /tmp/{COMPONENT}.zip  >> /tmp/${COMPONENT}.log   &&   mv ${COMPONENT}-main ${COMPONENT} >> /tmp/${COMPONENT}.log 
-stat $?
+stat $? 
 
 echo -n "Change the ownership to ${FUSER}:"
 chown -R $FUSER:$FUSER $COMPONENT/
