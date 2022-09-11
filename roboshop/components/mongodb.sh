@@ -12,7 +12,7 @@ echo -n "Installing ${COMPONENT}:"
 yum install -y mongodb-org >> /tmp/${COMPONENT}.log
 stat $? 
 
-echo -n "Updating the $COMPONENT Config:"
+echo "Updating the $COMPONENT Config:"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf 
 stat $? 
 
