@@ -8,11 +8,11 @@ COMPONENT=catalogue
 FUSER=roboshop
 
 echo -n "configure yum repos to nodeJS:"
-curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+curl -sL https://rpm.nodesource.com/setup_lts.x | bash >> /tmp/${COMPONENT}.log 
 stat $?
 
 echo -n "Install NodejS""
-yum install nodejs -y
+yum install nodejs -y >> /tmp/${COMPONENT}.log 
 stat $?
 
 echo -n "addd user roboshop"
@@ -32,7 +32,7 @@ cd /home/${FUSER}/ >> /tmp/${COMPONENT}.log
 unzip -o  /tmp/{COMPONENT}.zip  >> /tmp/${COMPONENT}.log   &&   mv ${COMPONENT}-main ${COMPONENT} >> /tmp/${COMPONENT}.log 
 stat $? 
 
-# echo -n "Change the ownership to ${FUSER}:"
+# echo -n "Change ownership to ${FUSER}:"
 # chown -R $FUSER:$FUSER $COMPONENT/
 # stat $?
 
