@@ -24,3 +24,11 @@ stat $?
 echo -n "Download schema:"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
 stat $?
+
+echo -n "Extract $COMPONENT Schema:"
+cd /tmp && unzip -o mongodb.zip && cd mongodb-main
+stat $? 
+
+echo -n "Injecting the $COMPONENT schema: "
+mongo < catalogue.js && mongo < users.js 
+stat $? 
