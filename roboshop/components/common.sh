@@ -14,3 +14,12 @@ stat() {
         echo -e "\e[31m Failure. Look for the logs \e[0m"  
     fi 
 }
+
+FUSER=roboshop
+LOGFILE=robot.log
+
+USER_SETUP() {
+    echo -n "Adding $FUSER user:"
+    id ${FUSER} &>> LOGFILE  || useradd ${FUSER}   
+    stat $? 
+}
