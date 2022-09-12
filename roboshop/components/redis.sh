@@ -14,12 +14,12 @@ echo -n "Installing $COMPONENT: "
 yum install redis-6.2.7 -y &>> /tmp/${COMPONENT}.log 
 stat $? 
 
-echo -n "Whitelisting the redis config : "
+echo -n "Whitelist the redis config : "
 sed -i -e 's/127.0.0.1/0.0.0.0/g' /etc/redis.conf 
 sed -i -e 's/127.0.0.1/0.0.0.0/g' /etc/redis/redis.conf 
 stat $? 
 
-echo -n "Staring $COMPONENT: "
+echo -n "Start $COMPONENT: "
 systemctl daemon-reload &>> /tmp/${COMPONENT}.log
 systemctl enable redis &>> /tmp/${COMPONENT}.log
 systemctl restart redis &>> /tmp/${COMPONENT}.log
