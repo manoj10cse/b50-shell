@@ -47,5 +47,6 @@ stat $?
 
 echo -n "Service starting"
 systemctl daemon-reload &>> /tmp/${COMPONENT}.log 
-systemctl enalbe catalogue &>> /tmp/${COMPONENT}.log 
-systemctl start catalogue &>> /tmp/${COMPONENT}.log 
+systemctl enalbe $COMPONENT &>> /tmp/${COMPONENT}.log 
+systemctl start $COMPONENT &>> /tmp/${COMPONENT}.log 
+stat $?
