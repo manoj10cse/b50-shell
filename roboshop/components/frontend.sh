@@ -28,12 +28,17 @@ echo -n "Performing Cleanup: "
 rm -rf frontend-main README.md
 stat  $?
 
-echo -n "Configuring the Reverse Proxy: "
+echo -n "Configure the Reverse Proxy: "
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
+
+for component in catalogue user cart; do 
+    echo -n "Updating the proxy file"
+    sed -i -e "/${component}/s/localhost/${component}.roboshop.internal/"  /etc/nginx/default.d/roboshop.conf
+    stat $?
+done
+
 
 echo -n "Starting Ngnix: "
 systemctl restart nginx
 stat $?
-
-# source is a command to import a file and run it locally
