@@ -41,7 +41,7 @@ cd $COMPONENT && npm install &>> /tmp/${COMPONENT}.log
 stat $? 
 
 echo -n "setup systemd file"
-sed -i -e 's/RDIS_ENDPOINT/redis.roboshop.internal' -e s/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service
+sed -i -e 's/RDIS_ENDPOINT/redis.roboshop.internal' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service
 mv /home/${FUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
 stat $?
 
