@@ -65,16 +65,16 @@ NODEJS() {
     yum install nodejs -y >> /tmp/${COMPONENT}.log 
     stat $? 
     
-    # Calling User creation function
+    
     USER_SETUP 
 
-    # Calling Download and extract function
+
     DOWNLOAD_AND_EXTRACT
 
     echo -n "Installing $COMPONENT Dependencies:"
     cd $COMPONENT && npm install &>> /tmp/${COMPONENT}.log 
     stat $? 
     
-    # Calling Config_SVC Function
+
     CONFIG_SVC
 }
