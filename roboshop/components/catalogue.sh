@@ -42,7 +42,7 @@ stat $?
 
 echo -n "Configure the Systemd file: "
 sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${FUSER}/${COMPONENT}/systemd.service 
-mv /home/${FUSER}/${COMPONENT}/systemd.service /etc/systemd/system/catalogue.service
+mv /home/${FUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
 stat $? 
 
 echo -n "Service starting"
