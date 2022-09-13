@@ -77,3 +77,21 @@ NODEJS() {
 
     CONFIG_SVC
 }
+
+MAVEN() {
+    echo -n "Installing Maven: "
+    yum install maven -y &>> LOGFILE
+    stat $? 
+
+    USER_SETUP
+
+    DOWNLOAD_AND_EXTRACT
+    
+    echo -n "Generating the artifact :"
+    cd /home/${FUSER}/${COMPONENT}
+    mvn clean package   &>> LOGFILE
+    mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
+    stat $? 
+    
+    CONFIG_SVC
+}
