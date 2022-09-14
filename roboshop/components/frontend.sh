@@ -32,7 +32,7 @@ echo -n "Configure the Reverse Proxy: "
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
 
-for component in catalogue user cart; do 
+for component in catalogue user cart shipping payment; do 
     echo -n "Updating the proxy file"
     sed -i -e "/${component}/s/localhost/${component}.roboshop.internal/"  /etc/nginx/default.d/roboshop.conf
     stat $?
