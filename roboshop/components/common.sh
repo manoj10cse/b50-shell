@@ -76,10 +76,14 @@ NODEJS() {
     
 
     CONFIG_SVC
+
+
+
 }
 
+
 MAVEN() {
-    echo -n "Installing Maven: "
+    echo -n "Install Maven: "
     yum install maven -y &>> LOGFILE
     stat $? 
 
@@ -87,11 +91,39 @@ MAVEN() {
 
     DOWNLOAD_AND_EXTRACT
     
-    echo -n "Generating the artifact :"
+    echo -n "Generate the artifact :"
     cd /home/${FUSER}/${COMPONENT}
     mvn clean package   &>> LOGFILE
     mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
     stat $? 
     
+    CONFIG_SVC
+
+    
+
+}
+
+
+
+PYTHON() {
+    echo -n "Install Pyhton:"
+    yum install python36 gcc python3-devel -y &>> ${LOGFILE} 
+    stat $? 
+
+    USER_SETUP
+
+    DOWNLOAD_AND_EXTRACT
+
+    cd /home/${FUSER}/${COMPONENT}/
+    pip3 install -r requirements.txt   &>> ${LOGFILE} 
+    stat $? 
+
+    USER_ID=$(id -u roboshop)
+    GROUP_ID=$(id -g roboshop)
+
+    echo -n "Update the $COMPONENT.ini file"
+    sed -i -e "/^uid/ c uid=${USER_ID}" -e "/^gid/ c gid=${GROUP_ID}" payment.ini
+    stat $? 
+
     CONFIG_SVC
 }
