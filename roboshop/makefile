@@ -19,5 +19,11 @@ user:
 mysql:
 	bash components/mysql.sh
 
+rabbitmq:
+	bash components/rabbitmq.sh
+
+payment:
+	bash components/payment.sh
+
 shiping:
 	bash components/shipping.sh
