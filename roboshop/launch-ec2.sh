@@ -4,7 +4,8 @@
 
 
 if [ -z  "$1" ] ; then 
-    echo -e "Machine Name Is Missing"
+
+    echo -e "Machine Name Is Missing . . . . "
     exit 1
 fi 
 
