@@ -19,4 +19,16 @@ PRIVATE_IP=$(aws ec2 run-instances --image-id ${AMI_ID} --instance-type t3.micro
 
 
 sed -e "s/PRIVATEIP/${PRIVATE_IP}/" -e "s/COMPONENT/${COMPONENT}/" r53.json  >/tmp/record.json 
-aws route53 change-resource-record-sets --hosted-zone-id ${ZONEID} --change-batch file:///tmp/record.json | jq  
+aws route53 change-resource-record-sets --hosted-zone-id ${ZONEID} --change-batch file:///tmp/record.json | jq     
+
+
+
+if [ "$1" == "all" ] ; then 
+    for component in catalogue cart shipping mongodb payment rabbitmq redis mysql user frontend; do 
+        COMPONENT=$component
+        # calling function
+        create-server
+     done
+else 
+     create-server
+fi 
