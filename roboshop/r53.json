@@ -3,7 +3,7 @@
     "Changes": [{
     "Action": "UPSERT",
         "ResourceRecordSet": {
-            "Name": "user.roboshop.internal",
+            "Name": "mysql.santhosh.roboshop.internal",
             "Type": "A",
             "TTL": 200,
             "ResourceRecords": [{ "Value": "PRIVATEIP"}]
