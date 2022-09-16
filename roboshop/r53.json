@@ -3,7 +3,7 @@
     "Changes": [{
     "Action": "UPSERT",
         "ResourceRecordSet": {
-            "Name": "COMPONENT.santhosh.roboshop.internal",
+            "Name": "COMPONENT.roboshop.internal",
             "Type": "A",
             "TTL": 200,
             "ResourceRecords": [{ "Value": "PRIVATEIP"}]
