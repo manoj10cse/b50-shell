@@ -9,7 +9,7 @@ if [ -z  "$1" ] ; then
 fi 
 
 COMPONENT=$1
-ZONEID="Z10155502CWKBH7M5VVE9"
+ZONEID="Z06355883I2R9ZLPV1NHY"
 AMI_ID=$(aws ec2 describe-images  --filters "Name=name,Values=DevOps-LabImage-CentOS7"  | jq '.Images[].ImageId' | sed -e 's/"//g')
 SGID="Z10155502CWKBH7M5VVE9"
 
