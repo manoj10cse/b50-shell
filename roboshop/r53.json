@@ -6,6 +6,6 @@
             "Name": "COMPONENT.santhosh.roboshop.internal",
             "Type": "A",
             "TTL": 200,
-            "ResourceRecords": [{ "Value": "PRIVATEIP"}]
+            "ResourceRecords": [{ "Value": "PRIVATEIP" }]
 }}]
 }
