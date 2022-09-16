@@ -26,7 +26,6 @@ aws route53 change-resource-record-sets --hosted-zone-id ${ZONEID} --change-batc
 if [ "$1" == "all" ] ; then 
     for component in catalogue cart shipping mongodb payment rabbitmq redis mysql user frontend; do 
         COMPONENT=$component
-        # calling function
         create-server
      done
 else 
